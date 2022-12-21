@@ -1,0 +1,10 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: DARTS.ipynb
+- file: iDARTS.ipynb
+- file: Single-DARTS.ipynb
+- file: ZARTS.ipynb

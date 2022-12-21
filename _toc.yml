@@ -1,0 +1,14 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+    
+format: jb-book
+root: intro
+parts:
+  - caption: Literature Overview
+    chapters:
+    - file: DARTS.ipynb
+    - file: iDARTS.ipynb
+    - file: R-DARTS.ipynb
+  - caption: Part 2
+    chapters:
+    - file: blank.ipynb
