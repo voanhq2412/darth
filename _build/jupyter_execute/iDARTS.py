@@ -24,7 +24,7 @@
 # $ \nabla^2_{w,\alpha} L_{train}(w^*,\alpha) + \nabla^2_{w,w} L_{train}(w^*,\alpha). \nabla_{\alpha} w = 0$<br>
 # $\nabla_{\alpha} w = - \big[\nabla^2_{w,w} L_{train}(w^*,\alpha)   \big]^{-1} . \nabla^2_{w,\alpha} L_{train}(w^*,\alpha)$<br>
 
-# Because the inverse Hessian of the training loss w.r.t the weights is expensive to compute the authors have proposed to use the Neumann approximation approach {cite:p} `DBLP:journals/corr/abs-1911-02590`
+# Because the inverse Hessian of the training loss w.r.t the weights is expensive to compute the authors have proposed to use the Neumann approximation approach {cite:p}`DBLP:journals/corr/abs-1911-02590`
 # computed based on mini-batch samples. 
 
 # $\big[\nabla^2_{w,w} L_{train}(w^*,\alpha)   \big]^{-1} = \underset{i \to \infty}{lim} \overset{i}{\underset{j=0}{\sum}} \big[ I - \nabla^2_{w,w} L_{train}(w^*,\alpha) \big]^j    $

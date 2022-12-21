@@ -371,7 +371,7 @@ title="Print to PDF"
 <span class="math notranslate nohighlight">\( \nabla_{w} (\nabla_{\alpha} L_{train}(w^*,\alpha) + \nabla_{w} L_{train}(w^*,\alpha). \nabla_{\alpha} w) = 0\)</span><br>
 <span class="math notranslate nohighlight">\( \nabla^2_{w,\alpha} L_{train}(w^*,\alpha) + \nabla^2_{w,w} L_{train}(w^*,\alpha). \nabla_{\alpha} w = 0\)</span><br>
 <span class="math notranslate nohighlight">\(\nabla_{\alpha} w = - \big[\nabla^2_{w,w} L_{train}(w^*,\alpha)   \big]^{-1} . \nabla^2_{w,\alpha} L_{train}(w^*,\alpha)\)</span><br></p>
-<p>Because the inverse Hessian of the training loss w.r.t the weights is expensive to compute the authors have proposed to use the Neumann approximation approach {cite:p} <code class="docutils literal notranslate"><span class="pre">DBLP:journals/corr/abs-1911-02590</span></code>
+<p>Because the inverse Hessian of the training loss w.r.t the weights is expensive to compute the authors have proposed to use the Neumann approximation approach <span id="id5">[<a class="reference internal" href="markdown.html#id8" title="Jonathan Lorraine, Paul Vicol, and David Duvenaud. Optimizing millions of hyperparameters by implicit differentiation. CoRR, 2019. URL: http://arxiv.org/abs/1911.02590, arXiv:1911.02590.">LVD19</a>]</span>
 computed based on mini-batch samples.</p>
 <p><span class="math notranslate nohighlight">\(\big[\nabla^2_{w,w} L_{train}(w^*,\alpha)   \big]^{-1} = \underset{i \to \infty}{lim} \overset{i}{\underset{j=0}{\sum}} \big[ I - \nabla^2_{w,w} L_{train}(w^*,\alpha) \big]^j    \)</span></p>
 <p>By using only the first K terms of the Neumann series:<br>
