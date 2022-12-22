@@ -117,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Literature Overview
+  Literature Review
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -134,6 +134,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="R-DARTS.html">
    R-DARTS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SDARTS.html">
+   SDARTS
   </a>
  </li>
 </ul>
@@ -376,6 +381,73 @@ computed based on mini-batch samples.</p>
 <p><span class="math notranslate nohighlight">\(\big[\nabla^2_{w,w} L_{train}(w^*,\alpha)   \big]^{-1} = \underset{i \to \infty}{lim} \overset{i}{\underset{j=0}{\sum}} \big[ I - \nabla^2_{w,w} L_{train}(w^*,\alpha) \big]^j    \)</span></p>
 <p>By using only the first K terms of the Neumann series:<br>
 <span class="math notranslate nohighlight">\(\nabla_\alpha L_{val} (w',a) \approx \nabla_\alpha L_{val} (w' ,a) - \xi \nabla^2_{w\alpha} L_{train}(w,\alpha). \overset{K}{\underset{j=0}{\sum}} \big[ I - \xi \nabla^2_{w,w} L_{train}(w^*,\alpha) \big]^j  . \nabla_{w'} L_{val}(w',\alpha) \ \ \ \ \)</span><br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">LA</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">LA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)[</span><span class="mi">0</span><span class="p">]),</span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.977281629044537,
+ array([[   3.16938385,    4.79798791,   -1.65607039],
+        [  43.58109883,  248.63975306,  -55.71362189],
+        [ -45.3070303 , -241.46372829,   56.59655205]]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">LA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)[</span><span class="mi">0</span><span class="p">]),</span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((173.0279318270279+0j),
+ array([[ 0.07457531, -0.07317505,  0.09831785],
+        [-0.01761773,  0.02957775, -0.05143573],
+        [-0.08554091,  0.07971121, -0.05795154]]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10000</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">LA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)[</span><span class="mi">0</span><span class="p">]),</span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((14095.70187627578+0j),
+ array([[ 2.06269275e-04, -3.60045475e-04,  4.09667424e-05],
+        [-3.37770985e-05,  3.38592449e-04, -6.41547855e-05],
+        [-2.10062638e-04,  3.21474309e-04,  7.93710535e-05]]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>The larger the Hessian Norm, the smaller the inverse Hessian, so smaller step in that direction.</p>
+<p>Determinant is product of eigenvalues <a class="reference external" href="https://math.berkeley.edu/~chenhi/math54-u15/problem150714.pdf">https://math.berkeley.edu/~chenhi/math54-u15/problem150714.pdf</a>.<br>
+inv(A) = 1/det(A) . adj(A)<br></p>
+<p>Large eigenvalues (sharpness) &gt; large determinant &gt; smaller inverse matrix</p>
 </section>
 
     <script type="text/x-thebe-config">

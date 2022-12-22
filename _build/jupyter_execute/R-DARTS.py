@@ -9,7 +9,7 @@
 # 
 # Furthermore, the authors hypothesize that one reason for the performance drop is due the discretization of the continuous architecture parameter $\alpha^*$. Because $\alpha^*$ lies in a very sharp region, discretizing it could lead to a significantly worse loss function value. This is less likely in the case of flat minimas. The author investigated this and found that high curvature did in fact lead to large performance drops.
 # 
-# However, the author proposed an early stopping rule by keeping track of the last few Hessian eigenvalues. Computing the Hessian and obtaining the eigenvalues are both very computationally expensive procedures.
+# However, the author proposed an early stopping rule by keeping track of the last few Hessian eigenvalues. Computing the Hessian and obtaining the eigenvalues will incur additional computational resource, even more so than the second-order DARTS.
 # 
 
 # In[ ]:

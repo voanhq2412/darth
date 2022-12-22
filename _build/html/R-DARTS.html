@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Next Chapter" href="blank.html" />
+    <link rel="next" title="SDARTS" href="SDARTS.html" />
     <link rel="prev" title="iDARTS" href="iDARTS.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -117,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Literature Overview
+  Literature Review
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -134,6 +134,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    R-DARTS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SDARTS.html">
+   SDARTS
   </a>
  </li>
 </ul>
@@ -361,7 +366,7 @@ title="Print to PDF"
 <p>Whereas the iDARTS <span id="id1">[<a class="reference internal" href="markdown.html#id3" title="Miao Zhang, Steven W Su, Shirui Pan, Xiaojun Chang, Ehsan M Abbasnejad, and Reza Haffari. Idarts: differentiable architecture search with stochastic implicit gradients. In International Conference on Machine Learning, 12557–12566. PMLR, 2021.">ZSP+21</a>]</span> includes an extra inverse Hessian (w.r.t the weights) term to obtain a more ‘accurate’ update on the architecture parameters (via <span class="math notranslate nohighlight">\(\nabla_\alpha L_{val}\)</span>), the R-DARTS <span id="id2">[<a class="reference internal" href="markdown.html#id7" title="Arber Zela, Thomas Elsken, Tonmoy Saikia, Yassine Marrakchi, Thomas Brox, and Frank Hutter. Understanding and robustifying differentiable architecture search. CoRR, 2019. URL: http://arxiv.org/abs/1909.09656, arXiv:1909.09656.">ZES+19</a>]</span>  attempts to analyze the Hessian of the architecture parameters (<span class="math notranslate nohighlight">\(\nabla^2_{\alpha \alpha} L_{val}\)</span>) to see how this correlates with the performance drop.</p>
 <p>The authors argue that the DARTS do not generalize well because when training the architecture parameter <span class="math notranslate nohighlight">\(\alpha\)</span> the model will settle on a sharp local minima; and a sharp minima doesn’t generalize as well as a flat minima. The author found a strong correlation between the dominant eigenvalue of the Hessian <span class="math notranslate nohighlight">\(\nabla^2_{\alpha \alpha} L_{val}\)</span> (an indicator of sharpness) and the test error.</p>
 <p>Furthermore, the authors hypothesize that one reason for the performance drop is due the discretization of the continuous architecture parameter <span class="math notranslate nohighlight">\(\alpha^*\)</span>. Because <span class="math notranslate nohighlight">\(\alpha^*\)</span> lies in a very sharp region, discretizing it could lead to a significantly worse loss function value. This is less likely in the case of flat minimas. The author investigated this and found that high curvature did in fact lead to large performance drops.</p>
-<p>However, the author proposed an early stopping rule by keeping track of the last few Hessian eigenvalues. Computing the Hessian and obtaining the eigenvalues are both very computationally expensive procedures.</p>
+<p>However, the author proposed an early stopping rule by keeping track of the last few Hessian eigenvalues. Computing the Hessian and obtaining the eigenvalues will incur additional computational resource, even more so than the second-order DARTS.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -398,10 +403,10 @@ title="Print to PDF"
             <p class="prev-next-title">iDARTS</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="blank.html" title="next page">
+    <a class='right-next' id="next-link" href="SDARTS.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Next Chapter</p>
+        <p class="prev-next-title">SDARTS</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

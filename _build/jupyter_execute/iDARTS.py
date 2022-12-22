@@ -32,6 +32,48 @@
 # By using only the first K terms of the Neumann series:<br>
 # $\nabla_\alpha L_{val} (w',a) \approx \nabla_\alpha L_{val} (w' ,a) - \xi \nabla^2_{w\alpha} L_{train}(w,\alpha). \overset{K}{\underset{j=0}{\sum}} \big[ I - \xi \nabla^2_{w,w} L_{train}(w^*,\alpha) \big]^j  . \nabla_{w'} L_{val}(w',\alpha) \ \ \ \ $<br>
 
+# In[1]:
+
+
+import numpy as np
+from numpy.linalg import inv
+from numpy import linalg as LA
+
+
+# In[2]:
+
+
+N = 3
+a = np.random.random((N,N))
+b = inv(a)
+np.max(LA.eig(a)[0]),b
+
+
+# In[3]:
+
+
+N = 3
+a = 100*np.random.random((N,N))
+b = inv(a)
+np.max(LA.eig(a)[0]),b
+
+
+# In[4]:
+
+
+N = 3
+a = 10000*np.random.random((N,N))
+b = inv(a)
+np.max(LA.eig(a)[0]),b
+
+
+# The larger the Hessian Norm, the smaller the inverse Hessian, so smaller step in that direction.
+
+# Determinant is product of eigenvalues https://math.berkeley.edu/~chenhi/math54-u15/problem150714.pdf.<br>
+# inv(A) = 1/det(A) . adj(A)<br>
+# 
+# Large eigenvalues (sharpness) > large determinant > smaller inverse matrix 
+
 # In[ ]:
 
 
