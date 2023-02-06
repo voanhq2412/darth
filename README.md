@@ -9,7 +9,10 @@ This README is work in progress. To be updated accordingly.
   More details at https://jupyterbook.org/en/stable/start/build.html
 
 ## Update changes on github site
+  in darth/
+  ```
   ghp-import -n -p -f _build/html
+  ```
   
   More details at https://jupyterbook.org/en/stable/publish/gh-pages.html
   
