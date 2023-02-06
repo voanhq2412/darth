@@ -12,4 +12,4 @@ parts:
     - file: SDARTS.ipynb
   - caption: Part 2
     chapters:
-    - file: blank.ipynb
+    - file: Hessian.ipynb
