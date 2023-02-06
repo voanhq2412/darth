@@ -13,5 +13,6 @@ parts:
   - caption: Part 2
     chapters:
     - file: Hessian.ipynb
-  - captions: Meeting notes
-    - Meetings.ipynb
+  - caption: Meeting notes
+    chapters: 
+    - file: Meetings.ipynb
